@@ -1,0 +1,26 @@
+  <%- include('partials/head')%>
+  <%- include('partials/navbar')%>
+  <body>
+    <div class="mt-5 d-flex justify-content-center container">
+      <div class="card" style="width: 18rem;">
+  <div class="card-body d-flex flex-column justify-content-center align-items-center">
+    <h5 class="card-title"><%= product.name %></h5>
+    <h6 class="card-subtitle mb-2"><a class="sub-link" href="/products?category=<%= product.category %>"><%= product.category %></a></h6>
+    <ul>
+      <li>Price: $<%= product.price %></li>
+    </ul>
+    <div class="d-grid gap-2 d-md-flex flex-column text-center">
+      <button class="btn btn-primary"><a class="btn-link-primary" href="/products" class="card-link">All Products</a></button>
+      <button class="btn btn-primary"><a class="btn-link-primary" href="/products/<%= product._id%>/edit" class="btn-link-primary">Edit</a></button>
+    <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
+      <div class="d-grid gap-2 d-md-flex flex-column">
+        <button class="btn btn-primary"><a class="btn-link-primary" href="/products/<%= product._id%>" class="btn-link-primary">Delete</a></button>
+      </div>
+    </form>
+    </div>
+  </div>
+ </div>
+</div>
+<%- include('partials/footer') %>
+  </body>
+</html>

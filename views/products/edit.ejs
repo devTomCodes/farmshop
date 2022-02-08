@@ -1,0 +1,40 @@
+  <%- include('partials/head')%>
+  <%- include('partials/navbar')%>
+  <body>
+    <div class="container p-5">
+    <form class="form-control p-3" action="/products/<%=product._id%>?_method=PUT" method="POST">
+    <h1>Edit Product</h1>
+      <label for="name">Product Name</label>
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        placeholder="Product Name"
+        value="<%= product.name %>"
+      />
+      <br />
+
+      <label for="price">Price</label>
+      <input
+        class="form-control"
+        type="number"
+        name="price"
+        placeholder="Price"
+        value="<%= product.price %>"
+      />
+      <br />
+
+      <label for="category">Select Category</label>
+      <select class="form-control" id="category" name="category">
+        <% for(let category of categories) { %>
+        <option value="<%=category%>" <%= product.category === category ? 'selected' : '' %>><%=category%></option>
+        <% } %>
+      </select>
+      <button class="mt-3 btn-primary form-control">Submit</button>
+      <button class="mt-2 btn-secondary form-control"><a class="btn-link-primary" href="/products/<%=product._id%>">Cancel</a></button>
+    
+    </form>
+   </div>
+  <%- include('partials/footer') %>
+  </body>
+</html>

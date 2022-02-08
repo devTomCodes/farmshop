@@ -1,0 +1,32 @@
+  <%- include('partials/head')%>
+  <%- include('partials/navbar')%>
+  <body>
+    <div class="container p-5 ml-5 mr-5">
+    <form class="form-control p-3" action="/products" method="POST">
+    <h1>Add A New Product</h1>
+      <label for="name"></label>
+      <input class="form-control" type="text" name="name" placeholder="Product Name" />
+      <br />
+
+      <label for="price"></label>
+      <input class="form-control" type="number" name="price" placeholder="Price" />
+      <br />
+
+      <label for="category"></label>
+      <select class="form-control" id="category" name="category">
+          <option value="select">-- Select an option --</option>
+        <% for(let category of categories) { %>
+        <option value="<%=category%>"><%=category%></option>
+        <% } %>
+        <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
+          <button class="form-control">Delete</button>
+        </form>
+      </select>
+      <button class="mt-3 btn-primary form-control">Submit</button>
+      <button class="mt-2 btn-secondary form-control"><a class="btn-link-primary" href="/products">Cancel</a></button>
+      
+     </form>
+    </div>
+  <%- include('partials/footer') %>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+  <%- include('partials/head')%>
+  <%- include('partials/navbar')%>
+  <div class="d-flex justify-content-center container p-5">
+  <div class="card p-3">
+  <div class="card-body">
+    <h5 class="card-title"><%=category%> products</h5>
+      <% for (product of products) { %>
+      <li class="links"><a class="link" href="/products/<%= product._id %>"><%= product.name %></a></li>
+      <% } %>
+      <div class="d-grid gap-2 d-md-flex flex-column">
+    <button class="mt-3 btn btn-primary"><a class="btn-link-primary" href="/products/new">Add New Product</a></button>
+    
+    <% if(category !== 'All') { %>
+    <button class="btn btn-primary"><a class="btn-link-primary" href="/products">All Products</a></button>
+    </div>
+    <% } %>
+     </div>
+    </div>
+   </div>
+  </body>
+  <%- include('partials/footer') %>
+</html>
